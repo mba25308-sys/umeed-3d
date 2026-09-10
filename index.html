@@ -53,6 +53,22 @@ label{color:#b6c6d6;font-size:14px}
 .job{display:flex;justify-content:space-between;align-items:center;background:#0c2033;border:1px solid #23445e;padding:20px;border-radius:10px;margin:12px auto;max-width:850px}
 footer{text-align:center;padding:35px;color:#71869b;border-top:1px solid #19354d}
 @media(max-width:800px){.hero{flex-direction:column;text-align:center}.cards{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}.scene{transform:scale(.7);margin:-40px}.hero h1{font-size:40px}nav button{display:none}}
+  .wall-image{
+position:absolute;
+top:100px;
+width:25%;
+height:65%;
+z-index:1;
+overflow:hidden;
+}
+.wall-image img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+.left-wall{left:0;}
+.right-wall{right:0;}
+.heroText,.scene{position:relative;z-index:2;}
 </style>
 </head>
 
@@ -72,7 +88,13 @@ footer{text-align:center;padding:35px;color:#71869b;border-top:1px solid #19354d
 
 <div class="hero">
 
-<div class="heroText">
+<div class="wall-image left-wall">
+  <img src="women-learning-1.png" alt="Women learning together">
+</div>
+
+<div class="wall-image right-wall">
+  <img src="women-learning-2.png" alt="Digital learning">
+</div><div class="heroText">
 <div class="badge">DIGITAL EDUCATION • TRUST • OPPORTUNITY</div>
 
 <h1>Education beyond <span class="green">boundaries.</span></h1>
