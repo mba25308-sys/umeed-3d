@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umeed | Learn. Verify. Rise.</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#07111f;
+    color:white;
+}
+
+nav{
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    background:#09182b;
+    border-bottom:1px solid #193454;
+    position:sticky;
+    top:0;
+    z-index:20;
+}
+
+.logo{
+    font-size:27px;
+    font-weight:bold;
+    color:#67e8c2;
+}
+
+.logo span{
+    color:white;
+}
+
+nav button{
+    background:none;
+    border:0;
+    color:#cbd5e1;
+    margin-left:22px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.hero{
+    min-height:480px;
+    padding:70px 7%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    background:
+      radial-gradient(circle at 80% 40%,#164e63 0,transparent 35%),
+      linear-gradient(135deg,#07111f,#0b2038);
+}
+
+.heroText{
+    max-width:570px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 15px;
+    border-radius:20px;
+    background:#123c46;
+    color:#67e8c2;
+    margin-bottom:20px;
+}
+
+h1{
+    font-size:55px;
+    line-height:1.05;
+    margin-bottom:20px;
+}
+
+h1 span{
+    color:#67e8c2;
+}
+
+.hero p{
+    color:#b8c7d9;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:28px;
+}
+
+.primary{
+    background:#67e8c2;
+    color:#06131f;
+    border:none;
+    padding:14px 25px;
+    border-radius:9px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.secondary{
+    background:transparent;
+    color:white;
+    border:1px solid #45627d;
+    padding:13px 22px;
+    border-radius:9px;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+/* 3D CLASSROOM */
+
+.scene{
+    width:470px;
+    height:330px;
+    perspective:900px;
+}
+
+.room{
+    width:400px;
+    height:270px;
+    margin:30px auto;
+    position:relative;
+    transform-style:preserve-3d;
+    transform:rotateX(55deg) rotateZ(-8deg);
+}
+
+.floor{
+    position:absolute;
+    width:400px;
+    height:270px;
+    background:
+      linear-gradient(90deg,rgba(103,232,194,.12) 1px,transparent 1px),
+      linear-gradient(rgba(103,232,194,.12) 1px,transparent 1px);
+    background-size:40px 40px;
+    background-color:#0c2637;
+    border:2px solid #24516a;
+    box-shadow:0 0 50px rgba(103,232,194,.15);
+}
+
+.wall{
+    position:absolute;
+    width:400px;
+    height:180px;
+    background:#102c42;
+    border:2px solid #24516a;
+    transform-origin:bottom;
+    transform:translateZ(-1px) rotateX(-90deg);
+}
+
+.wall2{
+    position:absolute;
+    width:270px;
+    height:180px;
+    background:#0d2438;
+    border:2px solid #24516a;
+    right:0;
+    transform-origin:left;
+    transform:rotateY(90deg);
+}
+
+.board{
+    position:absolute;
+    width:180px;
+    height:100px;
+    background:#07151f;
+    border:4px solid #67e8c2;
+    left:105px;
+    top:45px;
+    color:#67e8c2;
+    padding:25px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.table{
+    position:absolute;
+    width:150px;
+    height:75px;
+    background:#183d50;
+    left:125px;
+    top:155px;
+    border:2px solid #36758a;
+}
+
+.avatar{
+    position:absolute;
+    width:35px;
+    height:55px;
+    background:#67e8c2;
+    border-radius:18px 18px 8px 8px;
+}
+
+.a1{left:55px;top:165px}
+.a2{right:55px;top:175px}
+.a3{left:185px;top:225px;background:#9cc9ff}
+
+/* sections */
+
+section{
+    padding:70px 7%;
+}
+
+.sectionTitle{
+    text-align:center;
+    font-size:34px;
+    margin-bottom:40px;
+}
+
+.sectionTitle span{
+    color:#67e8c2;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#0c1d30;
+    border:1px solid #1d3a55;
+    border-radius:14px;
+    padding:25px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    border-color:#67e8c2;
+}
+
+.icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#9fb1c5;
+    line-height:1.5;
+}
+
+.course{
+    max-width:900px;
+    margin:auto;
+    background:#0c1d30;
+    border:1px solid #21415e;
+    border-radius:16px;
+    padding:30px;
+}
+
+.progress{
+    height:9px;
+    background:#1a3046;
+    border-radius:10px;
+    margin:15px 0 25px;
+}
+
+.progress div{
+    width:65%;
+    height:100%;
+    background:#67e8c2;
+    border-radius:10px;
+}
+
+.quiz{
+    max-width:700px;
+    margin:auto;
+}
+
+.option{
+    display:block;
+    width:100%;
+    padding:16px;
+    margin:10px 0;
+    background:#10263b;
+    border:1px solid #2a4863;
+    color:white;
+    border-radius:9px;
+    text-align:left;
+    cursor:pointer;
+}
+
+.option:hover{
+    border-color:#67e8c2;
+}
+
+.certificate{
+    max-width:700px;
+    margin:auto;
+    padding:35px;
+    border:2px solid #67e8c2;
+    border-radius:15px;
+    background:linear-gradient(135deg,#10283b,#071522);
+    text-align:center;
+}
+
+.certID{
+    margin:20px 0;
+    padding:12px;
+    background:#07111f;
+    color:#67e8c2;
+    font-family:monospace;
+}
+
+.jobs{
+    max-width:850px;
+    margin:auto;
+}
+
+.job{
+    background:#0c1d30;
+    border:1px solid #1d3a55;
+    padding:22px;
+    border-radius:12px;
+    margin-bottom:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.job small{
+    color:#8fa4ba;
+}
+
+.verify{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+}
+
+.verify input{
+    width:70%;
+    padding:15px;
+    background:#0c1d30;
+    border:1px solid #36536d;
+    color:white;
+    border-radius:8px;
+    margin:15px 5px;
+}
+
+.result{
+    display:none;
+    padding:20px;
+    background:#0d302b;
+    border:1px solid #67e8c2;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+footer{
+    padding:30px;
+    text-align:center;
+    color:#71869c;
+    border-top:1px solid #18324d;
+}
+
+@media(max-width:800px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .scene{
+        transform:scale(.75);
+        margin-top:-30px;
+    }
+
+    nav button{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">UMEED<span> ✦</span></div>
+    <div>
+        <button onclick="go('learn')">Learning</button>
+        <button onclick="go('certificate')">Certificates</button>
+        <button onclick="go('careers')">Careers</button>
+        <button onclick="go('verify')">Verify</button>
+    </div>
+</nav>
+
+<div class="hero">
+
+    <div class="heroText">
+        <div class="badge">DIGITAL LEARNING • TRUST • OPPORTUNITY</div>
+
+        <h1>Education beyond <span>boundaries.</span></h1>
+
+        <p>
+        Umeed is a digital learning ecosystem designed to make
+        quality education, verifiable credentials and career
+        opportunities accessible to every learner.
+        </p>
+
+        <button class="primary" onclick="go('learn')">
+            Enter Learning Campus →
+        </button>
+
+        <button class="secondary" onclick="go('verify')">
+            Verify Credential
+        </button>
+    </div>
+
+    <div class="scene">
+        <div class="room">
+            <div class="floor"></div>
+            <div class="wall"></div>
+            <div class="wall2"></div>
+            <div class="board">UMEED<br>VIRTUAL CLASSROOM</div>
+            <div class="table"></div>
+            <div class="avatar a1"></div>
+            <div class="avatar a2"></div>
+            <div class="avatar a3"></div>
+        </div>
+    </div>
+
+</div>
+
+<section>
+<h2 class="sectionTitle">One platform. <span>Multiple possibilities.</span></h2>
+
+<div class="cards">
+
+<div class="card">
+<div class="icon">🏫</div>
+<h3>3D Learning Campus</h3>
+<p>Experience an interactive virtual classroom where learners can explore educational content in an immersive environment.</p>
+</div>
+
+<div class="card">
+<div class="icon">🧠</div>
+<h3>Adaptive Learning</h3>
+<p>Quizzes can adapt to learner performance and create a more personalised learning journey.</p>
+</div>
+
+<div class="card">
+<div class="icon">⛓️</div>
+<h3>Blockchain Credentials</h3>
+<p>Course completion records can be represented through tamper-evident digital credentials.</p>
+</div>
+
+<div class="card">
+<div class="icon">💼</div>
+<h3>Career Opportunities</h3>
+<p>Connect learning outcomes with relevant jobs, internships and career opportunities.</p>
+</div>
+
+</div>
+</section>
+
+<section id="learn">
+
+<h2 class="sectionTitle">Virtual <span>Learning Campus</span></h2>
+
+<div class="course">
+
+<h2>Digital Skills Foundation</h2>
+
+<p style="color:#9fb1c5;margin-top:10px">
+Micro-Credential Course • Beginner Level
+</p>
+
+<div class="progress"><div></div></div>
+
+<h3>Module 3 of 5</h3>
+
+<p style="color:#b8c7d9;margin:15px 0 20px">
+Understanding Digital Transformation
+</p>
+
+<div style="background:#071522;padding:20px;border-radius:10px">
+
+<h3>🎥 Learning Video</h3>
+
+<p style="color:#9fb1c5;margin:10px 0 20px">
+Introduction to digital technologies and their role in education and employment.
+</p>
+
+<button class="primary" onclick="alert('Demo video module opened!')">
+▶ Watch Module
+</button>
+
+</div>
+
+<br>
+
+<button class="primary" onclick="go('quiz')">
+Continue to Adaptive Quiz →
+</button>
+
+</div>
+</section>
+
+<section id="quiz">
+
+<h2 class="sectionTitle">AI-Style <span>Adaptive Quiz</span></h2>
+
+<div class="quiz">
+
+<h3>Question 1</h3>
+
+<p style="margin:15px 0;color:#b8c7d9">
+Which technology can provide tamper-evident academic credentials?
+</p>
+
+<button class="option" onclick="answer(false)">A. Spreadsheet</button>
+<button class="option" onclick="answer(true)">B. Blockchain</button>
+<button class="option" onclick="answer(false)">C. Word Processor</button>
+<button class="option" onclick="answer(false)">D. Email</button>
+
+<div id="quizResult" style="margin-top:20px"></div>
+
+</div>
+</section>
+
+<section id="certificate">
+
+<h2 class="sectionTitle">Your <span>Digital Credential</span></h2>
+
+<div class="certificate">
+
+<p style="color:#67e8c2">UMEED DIGITAL ACADEMY</p>
+
+<h1 style="font-size:34px;margin:20px 0">
+Certificate of Completion
+</h1>
+
+<p>This certifies that</p>
+
+<h2 style="margin:15px">Mukund Kumar</h2>
+
+<p>has successfully completed</p>
+
+<h3 style="margin:15px">Digital Skills Foundation</h3>
+
+<div class="certID">
+UMEED-CERT-2026-001
+</div>
+
+<p style="color:#8fa4ba">
+⛓ Blockchain Testnet Credential • Tamper-Evident Record
+</p>
+
+<br>
+
+<button class="primary" onclick="alert('Credential hash verified successfully!')">
+✓ Verify on Blockchain
+</button>
+
+</div>
+</section>
+
+<section id="verify">
+
+<h2 class="sectionTitle">Employer <span>Verification Portal</span></h2>
+
+<div class="verify">
+
+<p style="color:#9fb1c5">
+Recruiters can instantly verify a learner's digital credential.
+</p>
+
+<input id="certInput" placeholder="Enter Certificate ID">
+
+<button class="primary" onclick="verifyCert()">
+Verify
+</button>
+
+<div class="result" id="verifyResult">
+<h3>✓ Credential Verified</h3>
+<p style="margin-top:10px">
+Certificate ID: UMEED-CERT-2026-001
+</p>
+<p>
+Learner: Mukund Kumar
+</p>
+<p>
+Course: Digital Skills Foundation
+</p>
+<p style="color:#67e8c2;margin-top:10px">
+Blockchain record: VALID
+</p>
+</div>
+
+</div>
+</section>
+
+<section id="careers">
+
+<h2 class="sectionTitle">Umeed <span>Career Hub</span></h2>
+
+<div class="jobs">
+
+<div class="job">
+<div>
+<h3>Junior Operations Associate</h3>
+<small>Chhattisgarh • Full Time</small>
+</div>
+<button class="primary" onclick="alert('Application started!')">Apply</button>
+</div>
+
+<div class="job">
+<div>
+<h3>Digital Support Executive</h3>
+<small>Raipur • Entry Level</small>
+</div>
+<button class="primary" onclick="alert('Application started!')">Apply</button>
+</div>
+
+<div class="job">
+<div>
+<h3>Data & AI Trainee</h3>
+<small>Remote • Internship</small>
+</div>
+<button class="primary" onclick="alert('Application started!')">Apply</button>
+</div>
+
+</div>
+</section>
+
+<footer>
+<strong>UMEED</strong> — Learn. Verify. Rise.<br><br>
+Digital Transformation Prototype • 2026
+</footer>
+
+<script>
+
+function go(id){
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
+function answer(correct){
+
+    let box=document.getElementById("quizResult");
+
+    if(correct){
+
+        box.innerHTML=
+        "<div style='padding:18px;background:#0d302b;border:1px solid #67e8c2;border-radius:10px'>"+
+        "✓ Correct! Difficulty increased for the next question.<br><br>"+
+        "<button class='primary' onclick=\"go('certificate')\">View Credential →</button>"+
+        "</div>";
+
+    }else{
+
+        box.innerHTML=
+        "<div style='padding:18px;background:#351b1b;border:1px solid #e58b8b;border-radius:10px'>"+
+        "Try again. The learning path will provide additional support."+
+        "</div>";
+
+    }
+}
+
+function verifyCert(){
+
+    let id=document.getElementById("certInput").value.trim();
+
+    if(id==="UMEED-CERT-2026-001"){
+
+        document.getElementById("verifyResult").style.display="block";
+
+    }else{
+
+        alert("Credential not found. Try UMEED-CERT-2026-001");
+
+    }
+}
+
+</script>
+
+</body>
+</html>
