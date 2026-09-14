@@ -67,8 +67,33 @@ object-fit:cover;
 .left-wall{left:0;}
 .right-wall{right:0;}
 .heroText,.scene{position:relative;z-index:2;}
- .hero-logos{
-  width:42%;
+.hero-logos{
+  position:absolute;
+  left:28%;
+  top:0;
+  width:44%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  z-index:10;
+}
+
+.hero-logos img{
+  object-fit:contain;
+  position:relative;
+  z-index:11;
+}
+
+.ullas-logo{
+  width:85%;
+}
+
+.digital-logo{
+  width:55%;
+}  width:42%;
   display:flex;
   flex-direction:column;
   align-items:center;
