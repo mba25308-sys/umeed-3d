@@ -67,6 +67,28 @@ object-fit:cover;
 .left-wall{left:0;}
 .right-wall{right:0;}
 .heroText,.scene{position:relative;z-index:2;}
+ .hero-logos{
+  width:42%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:25px;
+  z-index:3;
+}
+
+.hero-logos img{
+  max-width:100%;
+  object-fit:contain;
+}
+
+.ullas-logo{
+  width:85%;
+}
+
+.digital-logo{
+  width:55%;
+}
   body{
   background:#ffffff !important;
   color:#D4AF37 !important;;
@@ -97,7 +119,7 @@ section{
 <body>
 
 <nav>
-<div class="logo">UMEED ✦</div>
+<div class="logo">UMEED </div>
 <div>
 <button onclick="go('tracks')">Learning</button>
 <button onclick="go('assessment')">Assessment</button>
@@ -108,7 +130,10 @@ section{
 
 <!-- HERO -->
 
-<div class="hero">
+<div class="hero-logos">
+  <img src="ullas-pencil.png" class="ullas-logo" alt="ULLAS Education">
+  <img src="digital-india.png" class="digital-logo" alt="Digital India">
+</div>
 
 <div class="wall-image left-wall">
   <img src="women-learning-1.png" alt="Women learning together">
